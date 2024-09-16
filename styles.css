@@ -1,0 +1,191 @@
+/* Basic Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.birthday-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    border: 5px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in-out, glow 2s infinite alternate;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+/* Glowing Border */
+@keyframes glow {
+    0% {
+        border-color: rgba(255, 215, 0, 0.5);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    100% {
+        border-color: rgba(255, 215, 0, 1);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/* Grand Text Style */
+h1.grand-text {
+    font-size: 3rem;
+    text-shadow: 3px 3px 10px rgba(255, 165, 0, 1);
+    background: linear-gradient(90deg, #f39c12, #e74c3c, #8e44ad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    animation: textAnimate 4s infinite;
+}
+
+@keyframes textAnimate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 3px 3px #f39c12, 5px 5px 8px rgba(255, 255, 0, 0.8);
+    }
+    to {
+        text-shadow: 3px 3px #f39c12, 10px 10px 20px rgba(255, 255, 0, 1);
+    }
+}
+
+/* Photo Gallery with Side-to-Side Effect */
+.photo-gallery {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url('gallery-bg.jpg'); /* Add a background image */
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.photo-gallery img {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.photo-gallery img.visible {
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+/* Play Button */
+.play-audio {
+    background: #e74c3c;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.play-audio:hover {
+    background: #f39c12;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('confetti.png') repeat;
+    animation: confettiFall 5s infinite;
+}
+
+@keyframes confettiFall {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 500px;
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    h1.grand-text {
+        font-size: 2.2rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
+    }
+
+    .photo-gallery {
+        height: 250px;
+    }
+
+    .photo-gallery img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .play-audio {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+.gift-ask {
+    background: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.gift-ask:hover {
+    background: #45a049;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}

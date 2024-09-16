@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Barsa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="birthday-container">
+        <h1 class="grand-text">🎉 Happy Birthday, Barsa! 🎉</h1>
+        <p class="message">May your day be filled with love, joy, and beautiful memories! 🎂🎈</p>
+
+        <!-- Auto-changing gallery with background -->
+        <div class="photo-gallery">
+            <img src="photo11.jpg" alt="Memory 1" class="visible">
+            <img src="photo22.jpg" alt="Memory 2">
+            <img src="photo33.jpg" alt="Memory 3">
+            <img src="photo44.jpg" alt="Memory 4">
+            <img src="photo55.jpg" alt="Memory 5">
+        </div>
+
+        <button class="play-audio" onclick="playAudio()">🎵 Play Birthday Song 🎵</button>
+
+        <!-- Gift Ask Button with Pre-filled Message -->
+        <a href="https://wa.me/1234567890?text=I%20am%20wishing%20you%20a%20birthday%20gift%20😊🎁" target="_blank">
+            <button class="gift-ask">🎁 Ask for a Gift 🎁</button>
+        </a>
+
+        <audio id="birthdayAudio" src="birthday_song.mp3"></audio>
+
+        <div class="confetti"></div>
+    </div>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('birthdayAudio');
+            audio.play();
+        }
+
+        // Auto-change images with slide effect
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.photo-gallery img');
+        const totalImages = images.length;
+        
+        // Initially hide all images except the first one
+        images.forEach((img, index) => img.classList.remove('visible'));
+        images[0].classList.add('visible');  // Show the first image
+
+        // Function to cycle images with sliding effect
+        setInterval(() => {
+            images[currentIndex].classList.remove('visible'); // Hide current image
+            currentIndex = (currentIndex + 1) % totalImages; // Move to next image
+            images[currentIndex].classList.add('visible'); // Show next image
+        }, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
+
